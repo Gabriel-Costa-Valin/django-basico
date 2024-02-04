@@ -1,13 +1,26 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ver Produto</title>
+    <link rel="stylesheet" href="{% static 'produtos/css/styles.css' %}">
 </head>
 <body>
     <h1>Estou no ver produto</h1>
     <p>Olá {{ nome }}, tudo bem?</p>
     <button>Clique em mim!</button>
+
+    <form action="{% url 'ver_produto' %}" method="post">
+        {% csrf_token %}
+        <input type="text" name="nome" id="inome" placeholder="Digite seu nome">
+        <br>
+        <br>
+        <input type="number" name="age" id="iage" placeholder="Digite sua idade">
+        <br>
+        <br>
+        <input type="submit" value="Enviar">
+    </form>
 </body>
 </html>
